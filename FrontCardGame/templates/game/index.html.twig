@@ -1,0 +1,134 @@
+{% extends "./base.html.twig" %}
+{% block stylesheets %}
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>CSS Playing Cards</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/cards.css") }}" media="screen" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/cards-ie.css") }}" media="screen" />
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/cards-ie9.css") }}" media="screen" />
+    <![endif]-->
+
+    <style type="text/css"><!--
+        body {
+            margin: 2em 20%;
+        }
+        .options.active {
+            position: fixed;
+            top: 1em;
+            right: 1em;
+            background: #ddd;
+            padding: .5em;
+        }
+        .options.active h3 {
+            font-size: 1.2em;
+        }
+        .options.active ul {
+            padding: 0;
+        }
+        .options.active li {
+            color: #00c;
+            text-decoration: underline;
+            margin-left: 1.5em;
+            cursor: pointer;
+        }
+        .options.active li:hover {
+            text-decoration: none;
+        }
+        div.clear {
+            clear: both;
+            height: 0;
+            line-height: 0;
+            font-size: 1px;
+            visibility: hidden;
+        }
+        --></style>
+{% endblock %}
+{% block body %}
+
+    <div class="playingCards fourColours rotateHand">
+
+        <h1>Playing Cards</h1>
+
+        <div class="clear"></div>
+
+        <!-- A Full Set -->
+        <h2 id="full">The Init Pack</h2>
+        <ul class="table">
+            {% for card in pack.cards %}
+                {% set value = card.stringValue(card.value) %}
+                <li>
+                    <div class="card rank-{{ value }} {{ card.color }}"><span class="rank">{{ value}} </span><span class="suit">{{ card.icone }}</span></div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="clear"></div>
+
+        <h2 id="full">The Game Pack</h2>
+
+        <ul class="table">
+            {% for card in game.pack.cards %}
+                {% set value = card.stringValue(card.value) %}
+            <li>
+                <div class="card rank-{{ value }} {{ card.color }}"><span class="rank">{{ value}} </span><span class="suit">{{ card.icone }}</span></div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="clear"></div>
+        <!-- ul.hand -->
+
+        <h3>In your Hand</h3>
+        <div class="clear"></div>
+        <ul class="hand">
+            {% for main in game.mains %}
+                Hello:  {{ main.player.firstname }}
+                {% for card in main.cards %}
+                    {% set value = card.stringValue(card.value) %}
+                        <li>
+                            <a class="card rank-{{value}} {{card.color}}" href="#">
+                                <span class="rank">{{value}}</span>
+                                <span class="suit">{{card.icone}}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+            {% endfor %}
+        </ul>
+        <div class="clear"></div>
+        <h3>Sorted Hand</h3>
+        <div class="clear"></div>
+        <ul class="hand">
+            {% for main in game.mains %}
+                Hello:  {{ main.player.firstname }}
+                {% set cards = game.sortMain(main.cards) %}
+                {% for card in cards %}
+                    {% set value = card.stringValue(card.value) %}
+                    <li>
+                        <a class="card rank-{{value}} {{card.color}}" href="#">
+                            <span class="rank">{{value}}</span>
+                            <span class="suit">{{card.icone}}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+        <div class="clear"></div>
+    </div>
+{% endblock %}
+
+ {% block javascripts %}
+     <!-- the following js and css is not part of the CSS cards, but only for this example page -->
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+     <script type="text/javascript"><!--
+         $(document).ready(function(){
+             $('.options').addClass('active');
+             $('.toggle li').click(function(){
+                 $('.playingCards').toggleClass($(this).text());
+             });
+             $('.lang li').click(function(){
+                 $('html').attr('lang', $(this).text());
+                 $('html').attr('xml:lang', $(this).text());
+             });
+         });
+         //--></script>
+ {% endblock %}
