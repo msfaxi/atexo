@@ -1,10 +1,18 @@
 <?php
-
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 namespace Atexo\Tests\CardGame;
 
 use App\Service\CardGame\Pack;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class PackTest
+ * @package Atexo\Tests\CardGame
+ */
 class PackTest extends TestCase
 {
 

@@ -1,21 +1,26 @@
 <?php
 
-
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 namespace App\Service\CardGame;
 
-
+/**
+ * Class Player
+ * @package App\Service\CardGame
+ */
 class Player
 {
 
     private $firstname;
     private $lastname;
-    private $score;
 
     public function __construct($firstname, $lastname)
     {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
-        $this->score = 0;
     }
 
     /**
@@ -53,24 +58,4 @@ class Player
         $this->lastname = $lastname;
         return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getScore() : int
-    {
-        return $this->score;
-    }
-
-    /**
-     * @param mixed $score
-     * @return Player
-     */
-    public function setScore($score): int
-    {
-        $this->score = $score;
-        return $this;
-    }
-
-
 }

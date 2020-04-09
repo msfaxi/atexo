@@ -1,11 +1,19 @@
 <?php
 
-
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 namespace App\Service\CardGame;
 
 
 use Assert\Assertion;
 
+/**
+ * Class Game
+ * @package App\Service\CardGame
+ */
 class Game
 {
     /**
@@ -13,9 +21,9 @@ class Game
      */
     private $pack;
     /**
-     * @var array $mains
+     * @var array $hands
      */
-    private $mains = [];
+    private $hands = [];
 
     private $nbPlayer = 1;
 
@@ -45,10 +53,11 @@ class Game
     /**
      * @return array
      */
-    public function getMains(): array
+    public function getHands(): array
     {
-        return $this->mains;
+        return $this->hands;
     }
+
 
     /**
      * @return int
@@ -66,8 +75,8 @@ class Game
         try {
             for ($i = 1; $i <= $this->nbPlayer; $i++) {
                 $player = new Player("player" . $i, "test");
-                $main = new Main($player, $this->pack);
-                array_push($this->mains, $main->init());
+                $hand = new Hand($player, $this->pack);
+                array_push($this->hands, $hand->init());
             }
 
             return $this;
@@ -77,7 +86,7 @@ class Game
 
     }
 
-    public function sortMain($cards)
+    public function sortHands($cards)
     {
         usort($cards, function($a, $b) {
             if ((int)$a->getForce() == (int)$b->getForce()) {

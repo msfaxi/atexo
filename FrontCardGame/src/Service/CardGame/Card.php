@@ -1,8 +1,15 @@
 <?php
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 
 namespace App\Service\CardGame;
-
-
+/**
+ * Class Card
+ * @package App\Service\CardGame
+ */
 class Card
 {
 
@@ -41,18 +48,18 @@ class Card
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getIcone()
+    public function getIcone():string
     {
         return $this->icone;
     }
 
     /**
-     * @param mixed $icone
+     * @param string $icone
      * @return Card
      */
-    public function setIcone($icone)
+    public function setIcone($icone):Card
     {
         $this->icone = $icone;
         return $this;
@@ -130,13 +137,13 @@ class Card
         return $this;
     }
 
-    public function displayCard()
+    public function displayCard(): string
     {
         $str = $this->name ?? $this->value;
         return  self::DISPLAY[$this->color]." ".$str." ";
     }
 
-    public function stringValue()
+    public function stringValue() :string
     {
         $tab = [1=> 'a', 11 => 'j', 12 => 'q', 13 => 'k'];
         if (in_array($this->value, [1, 11, 12, 13])) {

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 namespace App\Service\CardGame;
 
 
@@ -14,6 +18,10 @@ class Pack
         $this->cards = $cards;
     }
 
+    /**
+     * Create the init pack
+     * @return $this
+     */
     public function init()
     {
         $force = 0;

@@ -81,9 +81,9 @@
         <h3>In your Hand</h3>
         <div class="clear"></div>
         <ul class="hand">
-            {% for main in game.mains %}
-                Hello:  {{ main.player.firstname }}
-                {% for card in main.cards %}
+            {% for hand in game.hands %}
+                Hello:  {{ hand.player.firstname }}
+                {% for card in hand.cards %}
                     {% set value = card.stringValue(card.value) %}
                         <li>
                             <a class="card rank-{{value}} {{card.color}}" href="#">
@@ -98,9 +98,9 @@
         <h3>Sorted Hand</h3>
         <div class="clear"></div>
         <ul class="hand">
-            {% for main in game.mains %}
-                Hello:  {{ main.player.firstname }}
-                {% set cards = game.sortMain(main.cards) %}
+            {% for hand in game.hands %}
+                Hello:  {{ hand.player.firstname }}
+                {% set cards = game.sortHands(hand.cards) %}
                 {% for card in cards %}
                     {% set value = card.stringValue(card.value) %}
                     <li>

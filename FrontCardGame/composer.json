@@ -1,4 +1,6 @@
 {
+    "name": "msfaxi/marketplace",
+    "license": "proprietary",
     "type": "project",
     "license": "proprietary",
     "require": {

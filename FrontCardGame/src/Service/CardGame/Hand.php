@@ -1,10 +1,14 @@
 <?php
 
-
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 namespace App\Service\CardGame;
 
 
-class Main extends Pack
+class Hand extends Pack
 {
     private CONST NBCARD = 10;
     private $pack;
@@ -33,6 +37,7 @@ class Main extends Pack
     }
 
     /**
+     * init hands
      * @return Pack|void
      * @throws \Exception
      */
@@ -60,9 +65,9 @@ class Main extends Pack
 
     /**
      * @param Pack $pack
-     * @return Main
+     * @return Hand
      */
-    public function setPack(Pack $pack): Main
+    public function setPack(Pack $pack): Hand
     {
         $this->pack = $pack;
         return $this;
@@ -78,9 +83,9 @@ class Main extends Pack
 
     /**
      * @param Player $player
-     * @return Main
+     * @return Hand
      */
-    public function setPlayer(Player $player): Main
+    public function setPlayer(Player $player): Hand
     {
         $this->player = $player;
         return $this;

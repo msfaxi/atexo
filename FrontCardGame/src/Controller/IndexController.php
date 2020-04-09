@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Copyright (C) Msfaxi - All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ */
 namespace App\Controller;
 
 use App\Service\CardGame\Game;
