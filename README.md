@@ -15,19 +15,17 @@ git@github.com:msfaxi/atexoCardGame.git
 ```
 cd FrontCardGame && composer install
 ```
-# For PHPUNIT TEST
+# For PHPUNIT test
 cd FrontCardGame && ./vendor/bin/phpunit tests/
 
 #To start game:
 ```
 sudo docker-compose build; sudo docker-compose up -d
 ```
-s
 
 # Access game 
 127.0.0.1:8081/game
 
-e
 
 
 # Credits
